@@ -1,0 +1,14 @@
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/bin/Debug/net6.0/GreenLineSystems.Data.deps.json
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/bin/Debug/net6.0/GreenLineSystems.Data.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/bin/Debug/net6.0/ref/GreenLineSystems.Data.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/bin/Debug/net6.0/GreenLineSystems.Data.pdb
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.csproj.AssemblyReference.cache
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.AssemblyInfoInputs.cache
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.AssemblyInfo.cs
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.csproj.CoreCompileInputs.cache
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/ref/GreenLineSystems.Data.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.pdb
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/bin/Debug/net6.0/GreenLineSystems.Data.runtimeconfig.json
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Data/obj/Debug/net6.0/GreenLineSystems.Data.genruntimeconfig.cache
