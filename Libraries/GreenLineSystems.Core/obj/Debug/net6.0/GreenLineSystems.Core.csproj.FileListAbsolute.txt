@@ -1,0 +1,17 @@
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/bin/Debug/net6.0/GreenLineSystems.Core.deps.json
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/bin/Debug/net6.0/GreenLineSystems.Core.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/bin/Debug/net6.0/ref/GreenLineSystems.Core.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/bin/Debug/net6.0/GreenLineSystems.Core.pdb
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/bin/Debug/net6.0/GreenLineSystems.Data.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/bin/Debug/net6.0/GreenLineSystems.Data.pdb
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.csproj.AssemblyReference.cache
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.AssemblyInfoInputs.cache
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.AssemblyInfo.cs
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.csproj.CoreCompileInputs.cache
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.csproj.CopyComplete
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/ref/GreenLineSystems.Core.dll
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.pdb
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/bin/Debug/net6.0/GreenLineSystems.Core.runtimeconfig.json
+/Users/user/RiderProjects/GreenLineBackend/Libraries/GreenLineSystems.Core/obj/Debug/net6.0/GreenLineSystems.Core.genruntimeconfig.cache
