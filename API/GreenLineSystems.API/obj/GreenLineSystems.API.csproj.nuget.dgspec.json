@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/user/RiderProjects/GreenLineBackend/API/GreenlineSystems.API/GreenLineSystems.API.csproj": {}
+    "/Users/user/RiderProjects/GreenLineBackend/API/GreenLineSystems.API/GreenLineSystems.API.csproj": {}
   },
   "projects": {
-    "/Users/user/RiderProjects/GreenLineBackend/API/GreenlineSystems.API/GreenLineSystems.API.csproj": {
+    "/Users/user/RiderProjects/GreenLineBackend/API/GreenLineSystems.API/GreenLineSystems.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/user/RiderProjects/GreenLineBackend/API/GreenlineSystems.API/GreenLineSystems.API.csproj",
+        "projectUniqueName": "/Users/user/RiderProjects/GreenLineBackend/API/GreenLineSystems.API/GreenLineSystems.API.csproj",
         "projectName": "GreenLineSystems.API",
-        "projectPath": "/Users/user/RiderProjects/GreenLineBackend/API/GreenlineSystems.API/GreenLineSystems.API.csproj",
+        "projectPath": "/Users/user/RiderProjects/GreenLineBackend/API/GreenLineSystems.API/GreenLineSystems.API.csproj",
         "packagesPath": "/Users/user/.nuget/packages/",
-        "outputPath": "/Users/user/RiderProjects/GreenLineBackend/API/GreenlineSystems.API/obj/",
+        "outputPath": "/Users/user/RiderProjects/GreenLineBackend/API/GreenLineSystems.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/user/.nuget/NuGet/NuGet.Config"
@@ -42,6 +42,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "ExcelDataReader": {
+              "target": "Package",
+              "version": "[3.7.0-develop00310, )"
+            },
+            "ExcelDataReader.DataSet": {
+              "target": "Package",
+              "version": "[3.7.0-develop00310, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -67,6 +75,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "Z.EntityFramework.Extensions.EFCore": {
+              "target": "Package",
+              "version": "[6.13.17, )"
             }
           },
           "imports": [
@@ -150,6 +162,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Z.EntityFramework.Extensions.EFCore": {
+              "target": "Package",
+              "version": "[6.13.17, )"
             }
           },
           "imports": [
@@ -163,6 +179,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -226,6 +245,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Z.EntityFramework.Extensions.EFCore": {
+              "target": "Package",
+              "version": "[6.13.17, )"
             }
           },
           "imports": [
@@ -239,6 +262,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

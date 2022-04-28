@@ -12,6 +12,22 @@ public class GreenLineContext:IdentityDbContext<ApplicationUser>
     }
     
     
+    public DbSet<PassengerDetails> PassengerDetails { get; set; }
     
+    
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+
+
+
+        builder.Entity<PassengerDetails>().HasIndex(p => new {p.Id, p.LastName});
+
+        //builder.Entity<PassengerDetails>().Property(u => u.Id).HasDatabaseGeneratedOption();
+
+        base.OnModelCreating(builder);
+
+
+
+    }
     
 }
