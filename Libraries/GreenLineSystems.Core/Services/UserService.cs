@@ -79,14 +79,21 @@ public class UserService:IUserService
                 }
                 else
                 {
-                    
-                  foreach (var role in model.roles)
-                  {
-                      var roleDetails = _db.Roles.Find(role);
-                      await _userManager.AddToRoleAsync(user, roleDetails.Name);
-                  }
 
-                  response.Code = 200;
+                    foreach (var role in model.roles)
+                    {
+                        
+                        IdentityRole identityRole = new IdentityRole
+                        {
+                            Name = role
+                        };
+                        
+                        await _roleManager.CreateAsync(identityRole);
+                        await _userManager.AddToRoleAsync(user, role);
+                    } 
+                    
+                    response.Code = 200;
+                    response.Data = true;
                   response.Message = "User added successfully";
 
                 }
@@ -98,6 +105,7 @@ public class UserService:IUserService
            _logger.LogError("Exception Adding Users:"+ e.StackTrace);
 
            response.Code = 500;
+           response.Data = false;
            response.Message = "Error adding user: " + e.Message;
         }
 

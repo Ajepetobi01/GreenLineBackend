@@ -1,4 +1,6 @@
 using System.Text;
+using GreenLineSystems.Core.Interfaces;
+using GreenLineSystems.Core.Services;
 using GreenLineSystems.Data.Context;
 using GreenLineSystems.Data.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -44,6 +46,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
     )
     .AddEntityFrameworkStores<GreenLineContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPassenger, PassengerService>();
 
 builder.Services.AddAuthentication(options =>
     {
