@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text;
 using GreenLineSystems.Core.Interfaces;
 using GreenLineSystems.Core.Services;
@@ -13,9 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<GreenLineContext>(options =>
     options.UseSqlServer(builder.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value,
@@ -27,6 +30,16 @@ builder.Services.AddDbContext<GreenLineContext>(options =>
                 errorNumbersToAdd: null
             );
         }));
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("GreenLinePolicy", builder =>
+
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
 
@@ -49,6 +62,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPassenger, PassengerService>();
+builder.Services.AddScoped<IAirportService, AirportService>();
+builder.Services.AddScoped<IAirlineService, AirlineService>();
 
 builder.Services.AddAuthentication(options =>
     {
@@ -80,6 +95,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseCors("GreenLinePolicy");
 
 app.UseHttpsRedirection();
 
