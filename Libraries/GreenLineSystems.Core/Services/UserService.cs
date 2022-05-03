@@ -56,6 +56,8 @@ public class UserService:IUserService
                 
                 ApplicationUser user = new ApplicationUser()
                 {
+                    FirstName = model.firstname,
+                    LastName = model.lastname,
                     UserName = model.email,
                     Email = model.email,
                     PhoneNumber = model.phonenumber,

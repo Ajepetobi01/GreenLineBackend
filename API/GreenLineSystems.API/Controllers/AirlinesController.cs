@@ -78,8 +78,8 @@ public class AirlinesController : Controller
                                 while (reader.Read()) //Each ROW
                                 {
                                     
-                                    
-                                    if(reader.GetValue(1) == null)
+                                    //this will help with excel file having empty rows
+                                    if(reader.GetValue(0) == null)
                                         continue;
                                     
                                     airlineList.Add(new AirlinesUpload()
