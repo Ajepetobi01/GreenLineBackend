@@ -13,6 +13,10 @@ public class GreenLineContext:IdentityDbContext<ApplicationUser>
     
     
     public DbSet<PassengerDetails> PassengerDetails { get; set; }
+    public DbSet<Airports> Airports { get; set; }
+    public DbSet<Airline> Airlines { get; set; }
+    
+    
     
     
     protected override void OnModelCreating(ModelBuilder builder)

@@ -71,9 +71,9 @@ public class UserService:IUserService
                     var identityMessage = result.Errors.FirstOrDefault().Description;
                     
                     response.Code = 500;
-                    response.Message = "Error Creating User: "+identityMessage;
+                    response.Message = "error Creating User: "+identityMessage;
                     
-                    _logger.LogError("Error Creating User :" + identityMessage);
+                    _logger.LogError("error Creating User :" + identityMessage);
 
                     return response;
                 }
@@ -94,7 +94,7 @@ public class UserService:IUserService
                     
                     response.Code = 200;
                     response.Data = true;
-                  response.Message = "User added successfully";
+                  response.Message = "user added successfully";
 
                 }
                 
@@ -102,11 +102,11 @@ public class UserService:IUserService
         }
         catch (Exception e)
         {
-           _logger.LogError("Exception Adding Users:"+ e.StackTrace);
+           _logger.LogError("exception Adding Users:"+ e.StackTrace);
 
            response.Code = 500;
            response.Data = false;
-           response.Message = "Error adding user: " + e.Message;
+           response.Message = "error adding user: " + e.Message;
         }
 
         return response;
