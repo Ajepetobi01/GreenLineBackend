@@ -12,7 +12,7 @@ namespace GreenLineSystems.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-[Authorize]
+//[Authorize]
 public class PassengerController : Controller
 {
     private IPassenger _passenger;
@@ -58,10 +58,10 @@ public class PassengerController : Controller
     
     [HttpPost("bulk")]
     [Produces(typeof(MessageResult<bool>))]
-    public async Task<IActionResult> PostBulkPassenger([FromBody] IFormFile file)
+    public async Task<IActionResult> PostBulkPassenger([FromForm] PassengerViewModel file)
     {
 
-        List<PassengerDetails> model = new List<PassengerDetails>();
+                List<PassengerDetails> model = new List<PassengerDetails>();
                 string FileName = string.Empty;
                 string FilePath = string.Empty;
                 string folderName = "PassengerUpload";
@@ -70,7 +70,7 @@ public class PassengerController : Controller
 
                 if (!Directory.Exists(newPath))
                     Directory.CreateDirectory(newPath);
-                if (file.Length > 0)
+                if (file.passengerFile.Length > 0)
                 {
                  
                     FileName = FileName.Insert(0, DateTime.Now.Millisecond.ToString());
@@ -81,7 +81,7 @@ public class PassengerController : Controller
                   
                     using (var stream = new FileStream(FilePath, FileMode.Create))
                     {
-                        file.CopyTo(stream);
+                        file.passengerFile.CopyTo(stream);
                     }
 
 
@@ -92,6 +92,7 @@ public class PassengerController : Controller
 
                 }
                 
+                System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
                 
                 using (var stream = System.IO.File.Open(FilePath, FileMode.Open, FileAccess.Read))
                 {
@@ -113,13 +114,43 @@ public class PassengerController : Controller
                             
                                 while (reader.Read()) //Each ROW
                                 {
+                                    //the terrorism value is in percentgate, we need to first get as string and then now 
+                                    //remove the percentage sign and convert it to double
+
+                                    var terror = ""; double newTerror = 0;
+                                    var narco = "";double newNarco = 0;
+                                    var smuggle = "";double newSmuggle = 0;
+                                    var immi = "";double newImmi = 0;
+                                    var revenue = ""; double newRevenue = 0;
+                                    var dateTime = DateTime.Now;
+                                    
+                                    if (model.Count > 0)
+                                    {
+                                         terror = reader.GetValue(6).ToString(); terror = terror.Replace("%", "");  newTerror = Convert.ToDouble(reader.GetValue(6));
+                                         narco = reader.GetValue(7).ToString(); narco = narco.Replace("%", "");  newNarco = Convert.ToDouble(reader.GetValue(7));
+                                         smuggle = reader.GetValue(8).ToString(); smuggle = smuggle.Replace("%", "");  newSmuggle= Convert.ToDouble(smuggle);
+                                         immi = reader.GetValue(9).ToString();immi = immi.Replace("%", "");  newImmi = Convert.ToDouble(immi);
+                                         revenue = reader.GetValue(10).ToString();revenue = revenue.Replace("%", ""); newRevenue = Convert.ToDouble(revenue);
+                                         dateTime = Convert.ToDateTime(reader.GetValue(3));
+                                    }
+
+                                   
                                     
                                     model.Add(new PassengerDetails()
                                     {
                                         FirstName = reader.GetValue(0).ToString(),
-                                        LastName = reader.GetValue(2).ToString(),
-                                        DateOfBirth = Convert.ToDateTime(reader.GetValue(3)),
-                                        Address = reader.GetValue(4).ToString()
+                                        LastName = reader.GetValue(1).ToString(),
+                                        Gender = reader.GetValue(2).ToString(),
+                                        
+                                        DateOfBirth = dateTime,
+                                        Nationality = reader.GetValue(4).ToString(),
+                                        PassportNumber = reader.GetValue(5).ToString(),
+                                        Terrorism = newTerror,
+                                        Narcotics = newNarco,
+                                        Smuggling = newSmuggle,
+                                        IllegalImmigration = newImmi,
+                                        Revenue = newRevenue,
+                                        Address = ""
                                         
                                     });
                                     

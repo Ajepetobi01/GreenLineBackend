@@ -168,9 +168,36 @@ namespace GreenLineSystems.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("IllegalImmigration")
+                        .HasColumnType("float");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("Narcotics")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Nationality")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PassportNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Revenue")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Smuggling")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Terrorism")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
