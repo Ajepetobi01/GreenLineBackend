@@ -27,7 +27,14 @@ public class PassengerService:IPassenger
                     FirstName = model.firstName,
                     LastName = model.surname,
                     DateOfBirth = model.dob,
-                    Address = model.address
+                    Address = model.address,
+                    PassportNumber = model.PassportNumber,
+                    Nationality = model.Nationality,
+                    Narcotics = model.Narcotics,
+                    Terrorism = model.Terrorism,
+                    IllegalImmigration = model.IllegalImmigration,
+                    Gender = model.Gender,
+                    Revenue = model.Revenue
                     
                 });
 
@@ -89,7 +96,15 @@ public class PassengerService:IPassenger
                         firstName = db.FirstName,
                         lastName = db.LastName,
                         passengerDob = db.DateOfBirth,
-                        passengerAddress = db.Address
+                        passengerAddress = db.Address,
+                        Passport = db.PassportNumber,
+                        Nationality = db.Nationality,
+                        Narcotics = db.Narcotics,
+                        Terrorism = db.Terrorism,
+                        IllegalImmigration = db.IllegalImmigration,
+                        Gender = db.Gender,
+                        Revenue = db.Revenue
+                        
 
                     }).ToListAsync();
 
@@ -123,7 +138,14 @@ public class PassengerService:IPassenger
                         firstName = db.FirstName,
                         lastName = db.LastName,
                         passengerDob = db.DateOfBirth,
-                        passengerAddress = db.Address
+                        passengerAddress = db.Address,
+                        Passport = db.PassportNumber,
+                        Nationality = db.Nationality,
+                        Narcotics = db.Narcotics,
+                        Terrorism = db.Terrorism,
+                        IllegalImmigration = db.IllegalImmigration,
+                        Gender = db.Gender,
+                        Revenue = db.Revenue
 
                     }).FirstOrDefaultAsync();
                 
@@ -155,7 +177,14 @@ public class PassengerService:IPassenger
                     firstName = db.FirstName,
                     lastName = db.LastName,
                     passengerDob = db.DateOfBirth,
-                    passengerAddress = db.Address
+                    passengerAddress = db.Address,
+                    Passport = db.PassportNumber,
+                    Nationality = db.Nationality,
+                    Narcotics = db.Narcotics,
+                    Terrorism = db.Terrorism,
+                    IllegalImmigration = db.IllegalImmigration,
+                    Gender = db.Gender,
+                    Revenue = db.Revenue
 
                 }).FirstOrDefaultAsync();
             

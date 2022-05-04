@@ -4,6 +4,7 @@ using GreenLineSystems.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenLineSystems.Data.Migrations
 {
     [DbContext(typeof(GreenLineContext))]
-    partial class GreenLineContextModelSnapshot : ModelSnapshot
+    [Migration("20220504140156_AddDetailstoPassenger")]
+    partial class AddDetailstoPassenger
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
