@@ -8,4 +8,7 @@ public interface IFlightService
 
     Task<MessageResult<List<FlightPassengerDetails>>> GetFlightDetails();
 
+    Task<MessageResult<bool>> UploadFlights(List<FlightsUpload> model);
+
+    Task<MessageResult<bool>> UploadFlightDetails(List<FlightsDetailsUpload> model);
 }
