@@ -2,6 +2,7 @@ using AutoMapper;
 using GreenLineSystems.Core.Interfaces;
 using GreenLineSystems.Core.ViewModels;
 using GreenLineSystems.Data.Context;
+using GreenLineSystems.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -37,7 +38,8 @@ public class FlightService:IFlightService
                         Terminal = xc.Terminal,
                         FlightCrew = xc.Crew,
                         FlightCapacity = xc.Capacity,
-                        Arrival = xc.Arrival
+                        Arrival = xc.Arrival,
+                        Flight = xc.Flight
                         
                         
                     }).ToListAsync();
@@ -95,5 +97,59 @@ public class FlightService:IFlightService
         }
 
         return response;
+    }
+
+    public async Task<MessageResult<bool>> UploadFlights(List<FlightsUpload> model)
+    {
+        MessageResult<bool> serviceResponse = new MessageResult<bool>();
+        try
+        {
+            using (_context)
+            {
+                var airports = _mapper.Map<List<Flights>>(model);
+                await _context.BulkInsertAsync(airports);
+                await _context.SaveChangesAsync();
+
+                serviceResponse.Data = true;
+                serviceResponse.Code = 200;
+                serviceResponse.Message = "File Uploaded Successfully";
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("exception Adding Flights:"+ e.StackTrace);
+
+            serviceResponse.Code = 500;
+            serviceResponse.Message = "error adding Flights: " + e.Message;
+        }
+
+        return serviceResponse;
+    }
+
+    public async Task<MessageResult<bool>> UploadFlightDetails(List<FlightsDetailsUpload> model)
+    {
+        MessageResult<bool> serviceResponse = new MessageResult<bool>();
+        try
+        {
+            using (_context)
+            {
+                var airports = _mapper.Map<List<FlightDetails>>(model);
+                await _context.BulkInsertAsync(airports);
+                await _context.SaveChangesAsync();
+
+                serviceResponse.Data = true;
+                serviceResponse.Code = 200;
+                serviceResponse.Message = "File Uploaded Successfully";
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("exception Adding FlightsDetails:"+ e.StackTrace);
+
+            serviceResponse.Code = 500;
+            serviceResponse.Message = "error adding FlightsDetails: " + e.Message;
+        }
+
+        return serviceResponse;
     }
 }

@@ -26,3 +26,4 @@ public class AirlinesUploadViewModel
 {
     public IFormFile airlineFile { get; set; }
 }
+

@@ -31,6 +31,46 @@ public class ClassMapping : Profile
             .ForMember(dest =>
                 dest.Country, opt => opt.MapFrom(src => src.Country))
            .ReverseMap();
+        
+        
+        CreateMap<FlightsUpload, Flights>()
+            .ForMember(dest =>
+                    dest.Seat,
+                opt => opt.MapFrom(src => src.PassengerSeat))
+            .ForMember(dest =>
+                    dest.Surname,
+                opt => opt.MapFrom(src => src.PassengerSurname))
+            .ForMember(dest =>
+                dest.ForeName, opt => opt.MapFrom(src => src.PassengerForeName))
+            .ForMember(dest =>
+                dest.FlightName, opt => opt.MapFrom(src => src.FlightName))
+            .ForMember(dest =>
+                dest.PassportNumber, opt => opt.MapFrom(src => src.PassportNumber))
+            .ForMember(dest =>
+                dest.CountryOfIssue, opt => opt.MapFrom(src => src.CountryOfIssue))
+            
+            .ReverseMap();
+        
+        
+        CreateMap<FlightsDetailsUpload, FlightDetails>()
+            .ForMember(dest =>
+                    dest.Aircraft,
+                opt => opt.MapFrom(src => src.Aircraft))
+            .ForMember(dest =>
+                    dest.Arrival,
+                opt => opt.MapFrom(src => src.FlightArrival))
+            .ForMember(dest =>
+                dest.Capacity, opt => opt.MapFrom(src => src.FlightCapacity))
+            .ForMember(dest =>
+                dest.Crew, opt => opt.MapFrom(src => src.FlgithCrew))
+            .ForMember(dest =>
+                dest.Departure, opt => opt.MapFrom(src => src.FlightDeparture))
+            .ForMember(dest =>
+                dest.Flight, opt => opt.MapFrom(src => src.Flight))
+            .ForMember(dest =>
+                dest.Terminal, opt => opt.MapFrom(src => src.FlightTerminal))
+
+            .ReverseMap();
 
     }
 }
