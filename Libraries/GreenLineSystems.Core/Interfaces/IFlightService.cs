@@ -11,4 +11,6 @@ public interface IFlightService
     Task<MessageResult<bool>> UploadFlights(List<FlightsUpload> model);
 
     Task<MessageResult<bool>> UploadFlightDetails(List<FlightsDetailsUpload> model);
+
+    Task<MessageResult<FlightDashboard>> GetFlightDashboard();
 }
