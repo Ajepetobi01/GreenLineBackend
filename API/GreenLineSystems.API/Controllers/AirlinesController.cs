@@ -19,7 +19,7 @@ public class AirlinesController : Controller
 
     [HttpPost("UploadAirline")]
    [Produces(typeof(MessageResult<bool>))]
-   public async Task<IActionResult> UploadAirlines([FromForm] AirlinesUploadViewModel model)
+   public async Task<IActionResult> UploadAirlines([FromForm(Name="airlineFile")] IFormFile airlineFile)
    {
       
        List<AirlinesUpload> airlineList = new List<AirlinesUpload>();
@@ -32,7 +32,7 @@ public class AirlinesController : Controller
 
                 if (!Directory.Exists(newPath))
                     Directory.CreateDirectory(newPath);
-                if (model.airlineFile.Length > 0)
+                if (airlineFile.Length > 0)
                 {
                  
                     FileName = FileName.Insert(0, DateTime.Now.Millisecond.ToString());
@@ -43,7 +43,7 @@ public class AirlinesController : Controller
                   
                     using (var stream = new FileStream(FilePath, FileMode.Create))
                     {
-                        model.airlineFile.CopyTo(stream);
+                        airlineFile.CopyTo(stream);
                     }
 
 

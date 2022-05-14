@@ -64,6 +64,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPassenger, PassengerService>();
 builder.Services.AddScoped<IAirportService, AirportService>();
 builder.Services.AddScoped<IAirlineService, AirlineService>();
+builder.Services.AddScoped<IFlightService, FlightService>();
 
 builder.Services.AddAuthentication(options =>
     {

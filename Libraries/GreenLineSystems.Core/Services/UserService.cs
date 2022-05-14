@@ -186,7 +186,7 @@ public class UserService:IUserService
           {
               using (_db)
               {
-                  var user = await _db.Users.Where(x => x.Id == model.id).FirstOrDefaultAsync();
+                  var user = await _db.Users.Where(x => x.Email == model.userEmail).FirstOrDefaultAsync();
 
                   if (user == null)
                   {
@@ -199,7 +199,7 @@ public class UserService:IUserService
 
                   await _userManager.RemovePasswordAsync(user);
 
-                  await _userManager.AddPasswordAsync(user, model.password);
+                  await _userManager.AddPasswordAsync(user, model.newPassword);
 
                   response.Code = 200;
                   response.Message = "Password Changed Successfully";

@@ -1,6 +1,7 @@
 using System.Data;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using ExcelDataReader;
 using GreenLineSystems.Core.Interfaces;
 using GreenLineSystems.Core.ViewModels;
@@ -23,42 +24,42 @@ public class PassengerController : Controller
         _hostingEnvironment = hostingEnvironment;
     }
     
-    [HttpGet("")]
+    // [HttpGet("")]
+    // [Produces(typeof(MessageResult<PassengerDetailsModel>))]
+    // public async Task<IActionResult> GetPassenger([FromQuery] int Id)
+    // {
+    //     var response = await _passenger.GetPassengerById(Id);
+    //     return StatusCode(response.Code, response);
+    // }
+    //
+    [HttpGet("GetPassengers")]
     [Produces(typeof(MessageResult<PassengerDetailsModel>))]
-    public async Task<IActionResult> GetPassenger([FromQuery] int Id)
+    public async Task<IActionResult> GetPassengers()
     {
-        var response = await _passenger.GetPassengerById(Id);
+        var response = await _passenger.GetPassengers();
         return StatusCode(response.Code, response);
     }
     
-    [HttpGet("all")]
-    [Produces(typeof(MessageResult<PassengerDetailsModel>))]
-    public async Task<IActionResult> GetPassengers([FromQuery] int pageSize, int limit)
-    {
-        var response = await _passenger.GetPassengers(pageSize,limit);
-        return StatusCode(response.Code, response);
-    }
+    // [HttpGet("name")]
+    // [Produces(typeof(MessageResult<PassengerDetailsModel>))]
+    // public async Task<IActionResult> GetPassenger([FromQuery] string name)
+    // {
+    //     var response = await _passenger.GetPassengerByName(name);
+    //     return StatusCode(response.Code, response);
+    // }
+    //
     
-    [HttpGet("name")]
-    [Produces(typeof(MessageResult<PassengerDetailsModel>))]
-    public async Task<IActionResult> GetPassenger([FromQuery] string name)
-    {
-        var response = await _passenger.GetPassengerByName(name);
-        return StatusCode(response.Code, response);
-    }
-    
-    
-    [HttpPost("")]
+    // [HttpPost("")]
+    // [Produces(typeof(MessageResult<bool>))]
+    // public async Task<IActionResult> PostPassenger([FromBody] NewPassengerDetails model)
+    // {
+    //     var response = await _passenger.AddPassenger(model);
+    //     return StatusCode(response.Code, response);
+    // }
+    //
+    [HttpPost("UploadPassenger")]
     [Produces(typeof(MessageResult<bool>))]
-    public async Task<IActionResult> PostPassenger([FromBody] NewPassengerDetails model)
-    {
-        var response = await _passenger.AddPassenger(model);
-        return StatusCode(response.Code, response);
-    }
-    
-    [HttpPost("bulk")]
-    [Produces(typeof(MessageResult<bool>))]
-    public async Task<IActionResult> PostBulkPassenger([FromForm] PassengerViewModel file)
+    public async Task<IActionResult> PostBulkPassenger([FromForm(Name="file")] IFormFile file)
     {
 
                 List<PassengerDetails> model = new List<PassengerDetails>();
@@ -70,7 +71,7 @@ public class PassengerController : Controller
 
                 if (!Directory.Exists(newPath))
                     Directory.CreateDirectory(newPath);
-                if (file.passengerFile.Length > 0)
+                if (file.Length > 0)
                 {
                  
                     FileName = FileName.Insert(0, DateTime.Now.Millisecond.ToString());
@@ -81,7 +82,7 @@ public class PassengerController : Controller
                   
                     using (var stream = new FileStream(FilePath, FileMode.Create))
                     {
-                        file.passengerFile.CopyTo(stream);
+                        file.CopyTo(stream);
                     }
 
 

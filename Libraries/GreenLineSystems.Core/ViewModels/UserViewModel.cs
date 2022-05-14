@@ -27,8 +27,8 @@ public class LoginModel
 
 public class UserCredentialsUpdate
 {
-    public string id { get; set; }
-    public string password { get; set; }
+    public string userEmail { get; set; }
+    public string newPassword { get; set; }
 }
 
 public class LoginResponse
