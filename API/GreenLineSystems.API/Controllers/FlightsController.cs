@@ -246,5 +246,13 @@ public class FlightsController : Controller
       var response = await _flightsService.UploadFlightDetails(flightDetailsList);
       return StatusCode(response.Code, response);
    }
-   
+
+
+   [HttpGet("FlightStat")]
+   [Produces(typeof(MessageResult<FlightDashboard>))]
+   public async Task<IActionResult> FlightStat()
+   {
+       var response = await _flightsService.GetFlightDashboard();
+       return StatusCode(response.Code, response);
+   }
 }

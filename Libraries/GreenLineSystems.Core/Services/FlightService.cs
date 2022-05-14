@@ -152,4 +152,84 @@ public class FlightService:IFlightService
 
         return serviceResponse;
     }
+
+    public async Task<MessageResult<FlightDashboard>> GetFlightDashboard()
+    {
+        MessageResult<FlightDashboard> response = new MessageResult<FlightDashboard>();
+        try
+        {
+            using (_context)
+            {
+                FlightDashboard dashboard = new FlightDashboard();
+                List<FlightReportList> flightreport = new List<FlightReportList>();
+                List<string> categories = new List<string>();
+
+                categories.Add("Smuggling"); 
+                categories.Add("Terrorism"); 
+                categories.Add("Narcotics");
+                categories.Add("IllegalImmigration");
+                categories.Add("Revenue");
+                
+                dashboard.Categories = categories;
+                
+                //get all flights data
+                var flights = await _context.Flights.ToListAsync();
+
+                foreach (var flight in flights)
+                {
+                    FlightReportList reportList = new FlightReportList();
+
+                    reportList.FlightName = flight.FlightName;
+                        
+
+                    var passengerDetails = await _context.PassengerDetails.Where(x => x.FirstName
+                        == flight.ForeName && x.LastName == flight.Surname).FirstOrDefaultAsync();
+
+                    if (passengerDetails != null)
+                    {
+                        List<double> datapoints = new List<double>();
+                        
+                        datapoints.Add(passengerDetails.Smuggling);
+                        datapoints.Add(passengerDetails.Terrorism);
+                        datapoints.Add(passengerDetails.Narcotics);
+                        datapoints.Add(passengerDetails.IllegalImmigration);
+                        datapoints.Add(passengerDetails.Revenue);
+
+                        reportList.DatePoints = datapoints;
+                    }
+                    else
+                    {
+                        List<double> datapointss = new List<double>();
+                        
+                        datapointss.Add(0);
+                        datapointss.Add(0);
+                        datapointss.Add(0);
+                        datapointss.Add(0);
+                        datapointss.Add(0);
+
+                        reportList.DatePoints = datapointss;
+                    }
+
+                    flightreport.Add(reportList);
+
+                }
+
+                dashboard.ReportList = flightreport;
+
+                response.Data = dashboard;
+                response.Code = 200;
+                response.Message = "Report successful";
+
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("Exception getting flight Dashboard:"+ e.StackTrace);
+
+            response.Code = 500;
+            response.Message = "error getting flight Dashboard: " + e.Message;
+        }
+
+        return response;
+    }
 }

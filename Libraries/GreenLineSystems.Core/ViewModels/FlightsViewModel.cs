@@ -75,3 +75,22 @@ public class FlightsUpload
 
     public string CountryOfIssue { get; set; }
 }
+
+public class FlightDashboard
+{
+    public List<string> Categories { get; set; }
+
+    public List<FlightReportList> ReportList { get; set; }
+}
+
+public class FlightReportList
+{
+    public string FlightName { get; set; }
+
+    public List<double> DatePoints { get; set; }
+}
+
+public class RiskTypeCategory
+{
+    
+}
