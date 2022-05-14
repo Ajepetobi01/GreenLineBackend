@@ -83,7 +83,7 @@ public class PassengerService:IPassenger
         }
     }
 
-    public async Task<MessageResult<List<PassengerDetailsModel>>> GetPassengers(int pageSize, int limit)
+    public async Task<MessageResult<List<PassengerDetailsModel>>> GetPassengers()
     {
         try
         {
@@ -108,8 +108,6 @@ public class PassengerService:IPassenger
 
                     }).ToListAsync();
 
-                passengers = passengers.Skip(pageSize).Take(limit).ToList();
-                
                 return new MessageResult<List<PassengerDetailsModel>>()
                 {
                     Data = passengers, Message = "Fetched Successfully", Code = 200
